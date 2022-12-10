@@ -98,7 +98,12 @@ fn main() {
 
     // Call a functions that only accept Bird. We are changing a field in tweety,
     // so we must pass it using &mut.
-    receive_bird(&mut tweety)
+    receive_bird(&mut tweety);
+
+    // We can't do something like this, since Aircraft does not implement Copy. In order to make
+    // this work, we'd have to do the same thing to Aircraft that we did to 
+    // Bird.
+    // update_aircraft(&mut bell_ranger, 250)
 }
 
 
@@ -123,3 +128,10 @@ fn receive_aircraft(p: Aircraft) {
     println!("The next line comes from the receive_aircraft function:");
     p.fly()
 }
+
+// this function only exists to show what we can't do, back on line 106.
+// It is never called.
+// fn update_aircraft(p: &mut Aircraft, r: usize) {
+//     p.range = r;
+//     println!("The range for {} is now {} {}", p.model, p.range, p.units)
+// }
