@@ -29,8 +29,8 @@ impl Fly for Aircraft {
 // This means that in some cases, you don't have to explicitly specify the lifetimes of 
 // references in your code, and the compiler will automatically infer the appropriate 
 // lifetimes based on the context.
-struct Bird<'a> {
-    name: &'a str,  // 'a is a lifetime ellision
+struct Bird<'a> { // 'a is a lifetime ellision
+    name: &'a str,  
     wing_span: f32,
     units: &'a str,
 }
